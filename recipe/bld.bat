@@ -1,4 +1,6 @@
-bash -lc "bash configure --without-docs --prefix=`cygpath -u $PREFIX`" || goto :ERROR
+set HOME="%CD%"
+
+bash -lc "./configure --without-docs --prefix=`cygpath -u $PREFIX`" || goto :ERROR
 bash -lc "make" || goto :ERROR
 bash -lc "make install" || goto :ERROR
 
