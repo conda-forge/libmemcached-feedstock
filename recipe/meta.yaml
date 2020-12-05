@@ -31,7 +31,7 @@ requirements:
     # win build chain
     - autotools_clang_conda  # [win]
   host:
-    - m2w64-winpthread-git  # [win]
+    - pthreads-win32    # [win]
 
 test:
   commands:
