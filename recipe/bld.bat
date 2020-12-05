@@ -1,10 +1,9 @@
-set HOME="%CD%"
+@echo on
 
-bash -lc "configure --without-docs"
-IF %ERRORLEVEL% NEQ 0 EXIT /B %ERRORLEVEL%
+call %BUILD_PREFIX%\Library\bin\run_autotools_clang_conda_build.bat build_win.sh || goto :ERROR
 
-bash -lc "make"
-IF %ERRORLEVEL% NEQ 0 EXIT /B %ERRORLEVEL%
+goto :EOF
 
-bash -lc "make install"
-IF %ERRORLEVEL% NEQ 0 EXIT /B %ERRORLEVEL%
+:ERROR
+echo FAIL Building %PKG_NAME% with error #%errorlevel%.
+exit /b 1
