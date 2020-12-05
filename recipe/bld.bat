@@ -1,8 +1,6 @@
-set HOME="%CD%"
-
-bash -lc "./configure --without-docs --prefix=`cygpath -u $PREFIX`" || goto :ERROR
-bash -lc "make" || goto :ERROR
-bash -lc "make install" || goto :ERROR
+bash -lc "cd $(cygpath -u $SRC_DIR) && ./configure --without-docs --prefix=$(cygpath -u $PREFIX)" || goto :ERROR
+bash -lc "cd $(cygpath -u $SRC_DIR) && make" || goto :ERROR
+bash -lc "cd $(cygpath -u $SRC_DIR) && make install" || goto :ERROR
 
 goto :EOF
 
