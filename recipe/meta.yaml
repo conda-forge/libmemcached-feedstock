@@ -30,6 +30,8 @@ requirements:
     - pkg-config  # [unix]
     # win build chain
     - autotools_clang_conda  # [win]
+  host:
+    - m2w64-libwinpthread-git  # [win]
 
 test:
   commands:
