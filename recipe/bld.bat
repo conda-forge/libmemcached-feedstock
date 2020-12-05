@@ -6,4 +6,5 @@ goto :EOF
 
 :ERROR
 echo FAIL Building %PKG_NAME% with error #%errorlevel%.
+type config.log
 exit /b %errorlevel%
