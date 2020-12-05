@@ -29,11 +29,10 @@ requirements:
     - libtool  # [unix]
     - pkg-config  # [unix]
     # win build chain
+    - clangxx  # [win]
     - m2-filesystem  # [win]
     - m2-make  # [win]
     - posix  # [win]
-  host:
-    - glib
 
 test:
   commands:

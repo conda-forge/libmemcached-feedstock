@@ -1,6 +1,6 @@
 @echo on
 
-bash build_win.sh || goto :ERROR
+bash %SRC_DIR%\build_win.sh || goto :ERROR
 
 goto :EOF
 
