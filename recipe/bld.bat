@@ -1,10 +1,12 @@
-bash -lc "cd $(cygpath -u $SRC_DIR) && ./configure --without-docs --prefix=$(cygpath -u $PREFIX)" || goto :ERROR
-bash -lc "cd $(cygpath -u $SRC_DIR) && make" || goto :ERROR
-bash -lc "cd $(cygpath -u $SRC_DIR) && make install" || goto :ERROR
+@echo on
+
+bash build_win.sh || goto :ERROR
 
 goto :EOF
 
 :ERROR
 echo FAIL Building %PKG_NAME% with error #%errorlevel%.
+echo "--- BEGIN CONFIG.LOG ---"
 type config.log
-exit /b %errorlevel%
+echo "--- END CONFIG.LOG ---"
+exit /b 1
