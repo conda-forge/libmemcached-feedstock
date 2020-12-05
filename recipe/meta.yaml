@@ -22,17 +22,21 @@ build:
 
 requirements:
   build:
-    - libtool  # [unix]
-    - pkg-config  # [unix]
-    - posix  # [win]
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
+    # unix build chain
+    - libtool  # [unix]
+    - pkg-config  # [unix]
+    # win build chain
+    - m2-filesystem  # [win]
+    - m2-make  # [win]
+    - posix  # [win]
   host:
     - glib
 
 test:
   commands:
-    - test -f $PREFIX/lib/libmemcached.a            # [unux]
+    - test -f $PREFIX/lib/libmemcached.a  # [unux]
     - test -f $PREFIX/lib/libmemcached${SHLIB_EXT}  # [unix]
 
 about:

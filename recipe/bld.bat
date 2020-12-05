@@ -1,10 +1,9 @@
-set HOME="%CD%"
+bash -lc "configure --without-docs --prefix=`cygpath -u $PREFIX`" || goto :ERROR
+bash -lc "make" || goto :ERROR
+bash -lc "make install" || goto :ERROR
 
-bash -lc "configure --without-docs"
-IF %ERRORLEVEL% NEQ 0 EXIT /B %ERRORLEVEL%
+goto :EOF
 
-bash -lc "make"
-IF %ERRORLEVEL% NEQ 0 EXIT /B %ERRORLEVEL%
-
-bash -lc "make install"
-IF %ERRORLEVEL% NEQ 0 EXIT /B %ERRORLEVEL%
+:ERROR
+echo FAIL Building %PKG_NAME% with error #%errorlevel%.
+exit /b %errorlevel%
