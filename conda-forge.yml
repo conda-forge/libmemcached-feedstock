@@ -1,1 +1,5 @@
 conda_forge_output_validation: true
+
+# TODO: maybe remove
+azure:
+  store_build_artifacts: False
