@@ -10,3 +10,5 @@ glib:
 - 2.64.6
 target_platform:
 - win-64
+vc:
+- '14'
