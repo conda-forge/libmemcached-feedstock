@@ -2,9 +2,12 @@
 set -e
 set -x
 
-./configure --prefix="$PREFIX"
+# Get an updated config.sub and config.guess
+cp "${BUILD_PREFIX}"/share/gnuconfig/config.* ./build-aux
 
-make
+./configure --prefix="${PREFIX}"
+
+make "${VERBOSE_AT}"
 ## tests hang on `testapp` on osx and linux
 # make check
 make install
